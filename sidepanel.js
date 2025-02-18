@@ -6,6 +6,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
 
+    const configButton = document.getElementById('config-button');
+    const configPanel = document.getElementById('config-panel');
+    const saveButton = document.getElementById('save-button');
+
+    chrome.storage.local.get(['url', 'api', 'modelName'], function(result) {
+        apiUrlInput.value = result.url || '';
+        apiKeyInput.value = result.api || '';
+        modelSelect.value = result.modelName || 'gpt-3.5-turbo';
+    });
+
+    configButton.addEventListener('click', function() {
+        configPanel.style.display = configPanel.style.display === 'none' ? 'block' : 'none';
+    });
+
+    saveButton.addEventListener('click', function() {
+        const apiUrl = apiUrlInput.value;
+        const apiKey = apiKeyInput.value;
+        const modelName = modelSelect.value;
+
+        chrome.storage.local.set({
+            url: apiUrl,
+            api: apiKey,
+            modelName: modelName
+        }, function() {
+            alert('配置已保存');
+        });
+    });
+
     sendButton.addEventListener('click', function() {
         const apiUrl = apiUrlInput.value;
         const apiKey = apiKeyInput.value;

@@ -113,18 +113,25 @@
 <body>
   <h1>大模型聊天插件</h1>
 
-  <label for="api-url">API URL:</label>
-  <input type="text" id="api-url" name="api-url">
+  <button id="config-button">设置</button>
 
-  <label for="api-key">API Key:</label>
-  <input type="text" id="api-key" name="api-key">
+  <div id="config-panel" style="display: none;">
+    <h2>设置</h2>
+    <label for="api-url">API URL:</label>
+    <input type="text" id="api-url" name="api-url">
 
-  <label for="model-select">选择大模型:</label>
-  <select id="model-select" name="model-select">
-    <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-    <option value="gpt-4">GPT-4</option>
-    <option value="other">Other</option>
-  </select>
+    <label for="api-key">API Key:</label>
+    <input type="text" id="api-key" name="api-key">
+
+    <label for="model-select">选择大模型:</label>
+    <select id="model-select" name="model-select">
+      <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+      <option value="gpt-4">GPT-4</option>
+      <option value="other">Other</option>
+    </select>
+
+    <button id="save-button">保存</button>
+  </div>
 
   <div id="chat-container">
   </div>
