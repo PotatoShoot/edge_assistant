@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "侧边网页插件",
+  "version": "1.0",
+  "description": "点击后可以在侧边打开网页",
+  "permissions": [
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "点击打开侧边栏"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}

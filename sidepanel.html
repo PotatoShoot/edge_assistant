@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>大模型聊天插件</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+      /* 稍微柔和的背景色 */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+      /* 稍微深色的标签 */
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      /* 更柔和的边框 */
+      border-radius: 5px;
+      /* 圆角 */
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #007bff;
+      /* 蓝色 */
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      /* 圆角 */
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      /* 过渡效果 */
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      /* 稍微深色的蓝色 */
+    }
+
+    #chat-container {
+      margin-top: 30px;
+      border: 1px solid #ddd;
+      /* 更柔和的边框 */
+      padding: 15px;
+      height: 400px;
+      /* 增加高度 */
+      overflow-y: scroll;
+      border-radius: 5px;
+      /* 圆角 */
+      background-color: #fff;
+      /* 白色背景 */
+    }
+
+    .message {
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      /* 圆角 */
+    }
+
+    .user {
+      color: #007bff;
+      /* 蓝色 */
+      background-color: #e6f7ff;
+      /* 浅蓝色背景 */
+      align-self: flex-start;
+    }
+
+    .bot {
+      color: #28a745;
+      /* 绿色 */
+      background-color: #f0fdf4;
+      /* 浅绿色背景 */
+      align-self: flex-end;
+    }
+
+    .error {
+      color: red;
+      background-color: #ffebee;
+      /* 浅红色背景 */
+    }
+
+    /* Flexbox for chat container */
+    #chat-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message {
+      width: fit-content;
+      max-width: 75%;
+      /* Prevent overflow */
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1>大模型聊天插件</h1>
+
+  <label for="api-url">API URL:</label>
+  <input type="text" id="api-url" name="api-url">
+
+  <label for="api-key">API Key:</label>
+  <input type="text" id="api-key" name="api-key">
+
+  <label for="model-select">选择大模型:</label>
+  <select id="model-select" name="model-select">
+    <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+    <option value="gpt-4">GPT-4</option>
+    <option value="other">Other</option>
+  </select>
+
+  <div id="chat-container">
+  </div>
+
+  <textarea id="message-input" placeholder="输入你的消息"></textarea>
+  <button id="send-button">发送</button>
+
+  <script src="sidepanel.js"></script>
+</body>
+
+</html>
